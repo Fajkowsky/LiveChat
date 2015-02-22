@@ -14,6 +14,10 @@ In `config.py` there is configuration for database connection.
 
 Application was created and tested on Xubuntu 12.04.5 LTS. For testing purposes I used Chromium(version 37.0.2062.120) and firefox(33.0). 
 
+### Screens
+![Landingpage](https://raw.githubusercontent.com/Fajkowsky/LiveChat/master/static/img/screen_1.png)
+![Chat screen](https://raw.githubusercontent.com/Fajkowsky/LiveChat/master/static/img/screen_2.png)
+
 ### Installation
 Before installation this application need have python 2.7.X, pip, virtualenv in your operating system, after eventual installation you can perform below steps:
 
