@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>FP Live Chat</title>
+
+    <link href="{{ url_for('static', filename='css/materialize.min.css') }}" type="text/css" rel="stylesheet"
+          media="screen,projection"/>
+    <link href="{{ url_for('static', filename='css/my.css') }}" type="text/css" rel="stylesheet">
+
+</head>
+<body>
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="container">
+        <div class="nav-wrapper"><a id="logo-container" href="#" class="brand-logo">FP Live Chat</a>
+            {% if logged_user %}
+                <ul class="right">
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    {% block container %}
+    {% endblock %}
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+<script src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/knockout-3.2.0.min.js') }}"></script>
+
+{% block js %}
+{% endblock %}
+</body>
+</html>

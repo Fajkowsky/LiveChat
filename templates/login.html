@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block container %}
+    <div class="row">
+        <div class="col s4">
+            <h4>Please log-in</h4>
+
+            <form method="post">
+                {{ form.csrf_token }}
+                <div class="input-field">
+                    {{ form.username(**{'data-binding': 'textInput: username'}) }}
+                    <label for="username">Username</label>
+                    {% for item in form.username.errors %} {{ item }} {% endfor %}
+                </div>
+                <div class="input-field">
+                    {{ form.password }}
+                    <label for="password">Password</label>
+                    {% for item in form.password.errors %} {{ item }} {% endfor %}
+                </div>
+                <button type="submit" class="btn btn-default">Start chat!</button>
+            </form>
+        </div>
+        <div class="col s8">
+            <h4>Instructions</h4>
+
+            <p class="flow-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex
+                ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+            </p>
+        </div>
+    </div>
+
+{% endblock %}

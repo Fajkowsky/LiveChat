@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block container %}
+    <div class="row">
+
+        <div class="col s5">
+            <h4>Chat list - <span id="username">{{ current_user.username }}</span></h4>
+            <table class="hoverable">
+                <thead>
+                <tr>
+                    <th>Chat rooms</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for room in rooms %}
+                    <tr>
+                        <td>{{ room.name }}</td>
+                        <td>
+                            <button data-bind="click: joinRoom.bind($data, {{ loop.index }}) ,enable: (inRoom() === false || currRoom() === {{ loop.index }}), text: currRoom() === {{ loop.index }} ? 'Leave' : 'Join'"
+                                    class="btn btn-default btn-small">
+                                Join
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <p class="chat-header">Private chats</p>
+
+            <ul class="collapsible" data-collapsible="accordion" data-bind="foreach: contacts">
+                <li>
+                    <div class="collapsible-header">
+                        <i class="mdi-hardware-keyboard-arrow-down"></i>
+                        <span data-bind="text: _id"></span>
+                        <span><a href="#" data-bind="click: function() {$parent.talkToUser($data)}, text: $parent.privateUser() === _id ? 'LEAVE' : 'TALK'"></a></span>
+                        <span data-bind="text: status === true ? 'Available' : 'Offline'"></span>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="row">
+                            <div class="col s10">
+                                <p data-bind="text: description"></p>
+                            </div>
+                            <div class="col s2">
+                                <a href="#" data-bind="click: function() {$parent.delUserContact($data)}"><i
+                                        class="mdi-action-delete small"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="select-wrapper">
+                <p class="chat-header">Add user to contact list</p>
+                <select class="browser-default"
+                        data-bind="options: users, optionsCaption: 'Select user', value: currSelectContact, event: {change: addUser}"></select>
+            </div>
+        </div>
+        <div class="col s6 offset-s1">
+            <h4>Chat window</h4>
+
+            <div class="section">
+                <ul data-bind="foreach: messages">
+                    <li>
+                        <b data-bind="text: user"></b> - <span data-bind="text: message"></span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="input-field">
+                <form>
+                    <label for="message">Your message</label>
+                    <input id="message" name="message" data-bind="textInput: currMsg" type="text">
+
+                    <div class="row">
+                        <div class="col s3">
+                            <button id="send" type="submit" data-bind="click: sendMsg" class="btn btn-default">Send!
+                            </button>
+                        </div>
+                        <div class="col s3">
+                            <input type="checkbox" id="available"
+                                   data-bind="checked: currStatus, event: {change: changeStatus}"/>
+                            <label for="available">Available</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="description" name="description"
+                                   data-bind="textInput: currDesc, event: {change: changeDesc}"
+                                   type="text">
+                            <label for="description" data-bind="attr: { class: 'active'}">Your description</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/my.js') }}"></script>
+{% endblock %}

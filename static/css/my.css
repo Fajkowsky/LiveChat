@@ -1,0 +1,58 @@
+.section {
+    height: 400px;
+    overflow: scroll;
+    overflow-x: hidden;
+    border: 1px solid #D1CDCD;
+    border-radius: 5px;
+}
+
+nav {
+    margin-bottom: 60px;
+}
+
+.btn-small {
+    line-height: 27px;
+    height: 25px;
+    margin-bottom: 0px;
+    width: 105px;
+}
+
+#logo-container {
+    width: 80%;
+}
+
+.container {
+    width: 100%;
+}
+
+.chat-header {
+    border-bottom: 1px solid rgb(206, 203, 203);
+    padding-bottom: 15px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.collapsible-header > span:nth-child(4) {
+    float: right;
+}
+
+.collapsible-header > span:nth-child(3) {
+    right: 110px;
+    position: absolute;
+}
+
+.collapsible-body p {
+    padding: 10px;
+}
+
+.collapsible-header {
+    position: relative;
+}
+
+.collapsible {
+    margin-bottom: 2rem;
+}
+
+.row > .input-field {
+    margin-top: -3PX;
+}
