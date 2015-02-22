@@ -24,3 +24,7 @@ var/
 
 # IDE
 .idea/
+
+# local
+local.py
+venv/
