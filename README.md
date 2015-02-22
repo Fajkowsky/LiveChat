@@ -10,7 +10,7 @@ This application is part of recruitment process. It's about making asynchronous 
   - `materializecss` main frontend css framework.
   - `knockoutjs` main js framework.
 
-Application use external database located on mongolab servers. So you don't need to have mongoDB locally on computer. In `config.py` there is configuration for database connection.
+In `config.py` there is configuration for database connection.
 
 Application was created and tested on Xubuntu 12.04.5 LTS. For testing purposes I used Chromium(version 37.0.2062.120) and firefox(33.0). 
 
